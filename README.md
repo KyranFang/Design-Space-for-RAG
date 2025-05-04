@@ -34,11 +34,8 @@ The generator is responsible for generating the final response based on the inpu
 ## RAG Pipelines
 Different RAG systems can have different pipelines, depending on the specific requirements and use cases. 
 
-## Survey Findings
-Based on the survey of the design space for RAG, we have identified several key findings:
-- **The choice of retriever and generator can significantly impact the performance of RAG systems.**
-- **The use of refiners and rerankers can improve the quality and relevance of the generated responses.**
-- **Different RAG pipelines are suitable for different use cases, and the choice of pipeline should be based on the specific requirements of the application.**
+## Relevant Works
+Flash Rag(https://arxiv.org/abs/2405.13576)
 
 ## Contributing
 We welcome contributions to this survey! If you have any suggestions, improvements, or new findings related to the design space for RAG, please feel free to open an issue or submit a pull request.
