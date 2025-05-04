@@ -6,16 +6,21 @@ However, why do we need to define the design space of RAG? Because the research 
 
 ## Table of Contents
 1. [RAG Modules](#rag-modules)
+    - [Indexing](#indexing)
     - [Retriever](#retriever)
     - [Refiner](#refiner)
     - [Reranker](#reranker)
     - [Generator](#generator)
-2. [RAG Pipelines](#rag-pipelines)
-3. [Survey Findings](#survey-findings)
-4. [Contributing](#contributing)
-5. [License](#license)
+3. [RAG Pipelines](#rag-pipelines)
+4. [Survey Findings](#survey-findings)
+5. [Contributing](#contributing)
+6. [License](#license)
 
 ## RAG Modules
+
+### Indexing
+Indexing plays a pivotal role in the realm of Retrieval Augmented Generation (RAG). It is the process of structuring and organizing the data in a corpus to enable efficient and rapid retrieval of relevant information.
+In the context of RAG, indexing is essential for the retriever module. A well - designed index allows the retriever to quickly sift through a large amount of data and identify documents that are most relevant to the input query. This is crucial as the speed and accuracy of retrieval directly impact the quality of the generated response by the generator.
 
 ### Retriever
 The retriever is responsible for retrieving relevant documents from a large corpus based on the input query. It plays a crucial role in RAG by providing the generator with the necessary context to generate high-quality responses. Different types of retrievers include:
