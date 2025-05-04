@@ -35,7 +35,11 @@ The generator is responsible for generating the final response based on the inpu
 Different RAG systems can have different pipelines, depending on the specific requirements and use cases. 
 
 ## Relevant Works
-Flash Rag(https://arxiv.org/abs/2405.13576)
+[FlashRAG: A Modular Toolkit for Efficient Retrieval-Augmented Generation Research](https://arxiv.org/abs/2405.13576)  
+[Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997)
+[Graph Retrieval-Augmented Generation: A Survey](https://arxiv.org/abs/2408.08921)
+[A Survey on RAG Meeting LLMs: Towards Retrieval-Augmented Large Language Models](https://arxiv.org/abs/2405.06211)
+
 
 ## Contributing
 We welcome contributions to this survey! If you have any suggestions, improvements, or new findings related to the design space for RAG, please feel free to open an issue or submit a pull request.
