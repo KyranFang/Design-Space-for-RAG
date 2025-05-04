@@ -41,8 +41,11 @@ Different RAG systems can have different pipelines, depending on the specific re
 
 ## Relevant Works
 [FlashRAG: A Modular Toolkit for Efficient Retrieval-Augmented Generation Research](https://arxiv.org/abs/2405.13576)  
+
 [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997)
+
 [Graph Retrieval-Augmented Generation: A Survey](https://arxiv.org/abs/2408.08921)
+
 [A Survey on RAG Meeting LLMs: Towards Retrieval-Augmented Large Language Models](https://arxiv.org/abs/2405.06211)
 
 
