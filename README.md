@@ -29,6 +29,16 @@ In this section, we will only discuss dense encoding models, and we will categor
 	1. [BGE-v1&v1.5](https://bge-model.com/bge/bge_v1_v1.5.html): BGE stands for BAAI General Embeddings, which is a series of BERT-based embedding models released by BAAI. The v1 version, released in August 2023, introduced multilingual (Chinese/English) and multi-scale (large/medium/small) models. The v1.5 version, released in September 2023, optimized retrieval capabilities in instruction-free scenarios, addressing issues with vector similarity distribution while balancing embedding quality and model scale. This encoder also supports [Matryoshka truncation](https://arxiv.org/pdf/2205.13147). During fine-tuning, users can specify different truncation lengths to adapt the model to various input scenarios.
 	2. [BGE-M3](https://bge-model.com/bge/bge_m3.html)
  	3. 
+#### 2. **模型列表**
+| Model Name                   | Links  | 参数规模 | 模型大小  | 描述                                                                 |
+|------------------------------|--------|----------|-----------|----------------------------------------------------------------------|
+| `BAAI/bge-v1&v1.5`           |        | 335M     | 1.34 GB   |  BGE stands for BAAI General Embeddings, which is a series of BERT-based embedding models released by BAAI. The v1 version, released in August 2023, introduced multilingual (Chinese/English) and multi-scale (large/medium/small) models. The v1.5 version, released in September 2023, optimized retrieval capabilities in instruction-free scenarios, addressing issues with vector similarity distribution while balancing embedding quality and model scale. This encoder also supports [Matryoshka truncation](https://arxiv.org/pdf/2205.13147). During fine-tuning, users can specify different truncation lengths to adapt the model to various input scenarios.                |
+| `BAAI/bge-M3`                | 英文   | 109M     | 438 MB    | 中等规模英文模型，性能与v1.5大模型对齐，适合通用场景。                 |
+| `BAAI/bge-EN-ICL`            | 英文   | 33.4M    | 133 MB    | 轻量英文模型，保持高效推理的同时优化了语义向量质量。                   |
+| `BAAI/bge-large-zh-v1.5`     | 中文   | 326M     | 1.3 GB    | 中文v1.5模型，提升中文文本的语义表征能力，适合复杂中文检索任务。       |
+| `BAAI/bge-base-zh-v1.5`      | 中文   | 102M     | 409 MB    | 中等规模中文模型，平衡性能与效率，适用于大多数中文场景。               |
+| `BAAI/bge-small-zh-v1.5`     | 中文   | 24M      | 95.8 MB   | 轻量中文模型，适合低延迟、低资源需求的中文语义编码任务。               |
+
 
 ### Indexing
 Indexing plays a pivotal role in RAG systems. It is the process of structuring and organizing the data in a corpus to enable efficient and rapid retrieval of relevant information.
