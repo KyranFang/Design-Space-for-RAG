@@ -6,6 +6,7 @@ However, why do we need to define the design space of RAG? Because the research 
 
 ## Table of Contents
 1. [RAG Modules](#rag-modules)
+    - [Encoder](#encoder)
     - [Indexing](#indexing)
     - [Retriever](#retriever)
     - [Refiner](#refiner)
@@ -17,6 +18,9 @@ However, why do we need to define the design space of RAG? Because the research 
 6. [License](#license)
 
 ## RAG Modules
+
+### Encoder
+In a RAG system, the core role of the encoder is to encode the **queries** from the users and **documents** from the external database into **dense vectors** for **semantic similarity calculation**. Subsequently, by computing the distances between these vectors, the system rapidly retrieves the **most relevant documents** from the knowledge base that match the user's query.
 
 ### Indexing
 Indexing plays a pivotal role in the realm of Retrieval Augmented Generation (RAG). It is the process of structuring and organizing the data in a corpus to enable efficient and rapid retrieval of relevant information.
