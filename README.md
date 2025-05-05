@@ -4,19 +4,18 @@
 This repository serves as a comprehensive survey of the design space for Retrieval Augmented Generation (RAG). RAG is a powerful approach that combines retrieval mechanisms with generative models to enhance the quality and relevance of generated text. 
 However, why do we need to define the design space of RAG? Because the research community and practitioners need clarity on which components are necessary for specific tasks and how to select them. In other words, we need a new roadmap for RAG research—one that maps out the landscape of choices and tradeoffs in designing effective RAG systems.  This survey explores different modules within RAG, such as retrievers, refiners, rerankers, and generators, as well as the various pipelines that can be constructed using these modules.
 
-## Table of Contents
-1. [RAG Modules](#rag-modules)
-   - [Retriever](#retriever)
-        - [Encoding](#encoder)
-        - [Indexing](#indexing)
-        - [Retrieval](#retrieval)
-    - [Reranker](#reranker)
-    - [Refiner](#refiner)
-    - [Generator](#generator)
-3. [RAG Pipelines](#rag-pipelines)
-4. [Contributing](#contributing)
-5. [License](#license)
-
+## Table of Contents  
+1. [RAG Modules](#rag-modules)  
+   1. [Retriever](#retriever)  
+      1. [Encoding](#encoding)  
+      2. [Indexing](#indexing)  
+      3. [Retrieval](#retrieval)  
+   2. [Reranker](#reranker)  
+   3. [Refiner](#refiner)  
+   4. [Generator](#generator)  
+2. [RAG Pipelines](#rag-pipelines)  
+3. [Contributing](#contributing)  
+4. [License](#license)  
 ## RAG Modules
 
 ### Encoder
