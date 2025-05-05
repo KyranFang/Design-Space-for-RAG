@@ -12,10 +12,9 @@ However, why do we need to define the design space of RAG? Because the research 
     - [Refiner](#refiner)
     - [Reranker](#reranker)
     - [Generator](#generator)
-3. [RAG Pipelines](#rag-pipelines)
-4. [Survey Findings](#survey-findings)
-5. [Contributing](#contributing)
-6. [License](#license)
+2. [RAG Pipelines](#rag-pipelines)
+3. [Contributing](#contributing)
+4. [License](#license)
 
 ## RAG Modules
 
@@ -26,33 +25,78 @@ In this section, we will only discuss dense encoding models, and we will categor
 
 #### Open-source Encoder:
 1. [BGE Series](https://bge-model.com/bge/index.html): BGE stands for **B**AAI **G**eneral **E**mbeddings, which is a series of BERT-based embedding models released by BAAI.
-| Model Name                     | Dimension | Max Token | Parameter Scale | Model Size    | Comments                                                                 |
-|----------------------------------------|-------------------------|----------------------|--------------------------|-----------------------|----------------------------------------------------------------|
-| `bge-v1&v1.5`                  | Small:<br> 384<br><br>Base:<br> 768<br><br>Large:<br> 1024     | 512       |  Small:<br> 24M/33.4M (zh/en)<br><br>Base:<br> 102M/109M (zh/en)<br><br>Large:<br> 326M/335M (zh/en)<br> | Small:<br> 95.8MB/133MB (zh/en)<br><br>Base:<br> 409MB/438MB (zh/en)<br><br>Large:<br> 1.3GB/1.34GB(zh/en)<br> |Supports [Matryoshka truncation](https://arxiv.org/pdf/2205.13147). Norm normalized to 1.|
-| `bge-m3`                       | 1024      | 8192      | 596M            | 2.27 GB       |                                                                             |
 
+| Model Name                     | Dimension | Max Token | Parameter Scale   | Memory Usage          | Comments                                                                 |
+|--------------------------------|-----------|-----------|-------------------|-----------------------|---------------------------------------------------------------------------|
+| `bge-base-v1.5`                | 768       | 512       | 109M              | 390 MB                | Most commonly used embedding models among BGE family. It has two separate model versions for encoding Chinese and English respectively. Three embedding models of different sizes (small / base / large) are provided in version 1.5 . |
+| `bge-m3`                       | 1024      | 8192      | 596M              | 1370 MB               | **Multi-Functionality:** simultaneously perform the three common retrieval functionalities of embedding model: dense retrieval, multi-vector retrieval, and sparse retrieval. <br>**Multi-Linguality:** support more than 100 working languages. <br>**Multi-Granularity:** is able to process inputs with up to 8192 tokens.  |
+| `bge-en-icl`                   | 4096      | 32768     | 7.1B              | 27125 GB              | Adopted Mistral-7B as the backbone. By providing few-shot examples in the query, it can significantly enhance the model’s ability to handle new tasks.|
 
+2. [E5 Series](https://github.com/microsoft/unilm/blob/master/e5/README.md): The e5-large model is a powerful text embedding model developed by Microsoft, known for its strong generalization capabilities.
 
+| Model Name                     | Dimension | Max Token | Parameter Scale | Memory Usage  | Comments                                                                    |
+|--------------------------------|-----------|-----------|-----------------|---------------|-----------------------------------------------------------------------------|
+| `e5-base-v2`                   | 1024      | 514       | 109M            | 418 MB        | Most commonly used embedding models among e5 family. This model only works for English texts. Long texts will be truncated to at most 512 tokens. Three embedding models of different sizes (small / base / large) are providedin version 2.  |
+| `multilingual-e5-base`         | 768       | 514       | 278M            | 1061 MB       | Specifically designed for multi-lingual input. Three embedding models of different sizes (small / base / large) are provided. An instruction-tuned embedding model based on multilingual-e5-large was introduced too.                                                                    |
+| `e5-mistral-7b-instruct`       | 4096      | 32768     | 7B              | 13563 MB      | This model is initialized from Mistral-7B-v0.1 and fine-tuned on a mixture of multilingual datasets. As a result, it has some multilingual capability. However, since Mistral-7B-v0.1 is mainly trained on English data, it is recommended to use this model for English only. For multilingual use cases, please refer to multilingual-e5.  |
 
-| `e5-large-v2`                  | 1024      | 512       | -               | -             |                                                                             |
-| `gte-base`                     | 768       | 512       | -               | -             |                                                                             |
-| `gte-large`                    | 1024      | 512       | -               | -             |                                                                             |
-| `gte-Qwen2`                    | -         | -         | -               | -             |                                                                             |
-| `jina-clip-v2`                 | 512       | -         | -               | -             |                                                                             |
+3. [GTE Series](https://huggingface.co/collections/Alibaba-NLP/gte-models-6680f0b13f885cb431e6d469): GTE stands for **G**eneral **T**ext **E**mbedding Models Released by Tongyi Lab of Alibaba Group. 
+
+| Model Name                     | Dimension | Max Token | Parameter Scale | Memory Usage  | Comments                                                                    |
+|--------------------------------|-----------|-----------|-----------------|---------------|-----------------------------------------------------------------------------|
+| `gte-base-v2`                  | 768       | 512       | -               | -             | It has two separate model versions for encoding Chinese and English respectively. |
+| `gte-large`                    | 1024      | 512       | -               | -             | -                                                                           |
+| `gte-Qwen2-7B-instruct`        | 1024      | 514       | 7B              | 29040 MB      | -                                                                           |
+
+4. [Jina Series](https://huggingface.co/collections/Alibaba-NLP/gte-models-6680f0b13f885cb431e6d469).
+
+| Model Name                     | Dimension | Max Token | Parameter Scale | Memory Usage  | Comments                                                                    |
+|--------------------------------|-----------|-----------|-----------------|---------------|-----------------------------------------------------------------------------|
 | `jina-embeddings-v2-base-en`   | 768       | -         | -               | -             |                                                                             |
 | `jina-embeddings-v2-base-zh`   | 768       | -         | -               | -             |                                                                             |
 | `jina-embeddings-v2-small-en`  | 384       | -         | -               | -             |                                                                             |
 | `jina-embeddings-v3`           | -         | -         | -               | -             |                                                                             |
+
+5. [SFR Series](https://huggingface.co/moka-ai/m3e-base) 
+
+| Model Name                     | Dimension | Max Token | Parameter Scale | Memory Usage  | Comments                                                                    |
+|--------------------------------|-----------|-----------|-----------------|---------------|-----------------------------------------------------------------------------|
+| `SFR-Embedding-Mistral`        | 768       | -         | -               | -             |                                                                             |
+| `SFR-Embedding-2_R`            | 1024      | -         | -               | -             |                                                                             |
+
+6. [M3e Series](https://huggingface.co/moka-ai/m3e-base)
+
+| Model Name                     | Dimension | Max Token | Parameter Scale | Memory Usage  | Comments                                                                    |
+|--------------------------------|-----------|-----------|-----------------|---------------|-----------------------------------------------------------------------------|
 | `m3e-base`                     | 768       | -         | -               | -             |                                                                             |
 | `m3e-large`                    | 1024      | -         | -               | -             |                                                                             |
 | `m3e-small`                    | 384       | -         | -               | -             |                                                                             |
-| `multilingual-e5-large`        | 1024      | 512       | -               | -             |                                                                             |
-| `text2vec-base-chinese`        | 768       | 512       | -               | -             |                                                                             |
-| `text2vec-base-chinese-paraphrase` | 768     | 512       | -               | -             |                                                                             |
-| `text2vec-base-chinese-sentence` | 768     | 512       | -               | -             |                                                                             |
-| `text2vec-base-multilingual`   | 768       | 512       | -               | -             |                                                                             |
-| `text2vec-large-chinese`       | 1024      | 512       | -               | -             |                                                                             |
 
+#### Close-source Encoder:
+
+1. [OpenAI text-embeding Series](https://openai.com/index/new-embedding-models-and-api-updates/)
+
+| Model Name                     | Dimension | Max Token | Parameter Scale | Memory Usage  | Comments                                                                    |
+|--------------------------------|-----------|-----------|-----------------|---------------|-----------------------------------------------------------------------------|
+| `m3e-base`                     | 768       | -         | -               | -             |                                                                             |
+| `m3e-large`                    | 1024      | -         | -               | -             |                                                                             |
+| `m3e-small`                    | 384       | -         | -               | -             |                                                                             |
+
+2. [Cohere embed Series](https://cohere.com/embed)
+
+| Model Name                     | Dimension | Max Token | Parameter Scale | Memory Usage  | Comments                                                                    |
+|--------------------------------|-----------|-----------|-----------------|---------------|-----------------------------------------------------------------------------|
+| `m3e-base`                     | 768       | -         | -               | -             |                                                                             |
+| `m3e-large`                    | 1024      | -         | -               | -             |                                                                             |
+| `m3e-small`                    | 384       | -         | -               | -             |                                                                             |
+
+3. [Gemini embedding Series](https://ai.google.dev/gemini-api/docs/embeddings)
+
+| Model Name                     | Dimension | Max Token | Parameter Scale | Memory Usage  | Comments                                                                    |
+|--------------------------------|-----------|-----------|-----------------|---------------|-----------------------------------------------------------------------------|
+| `m3e-base`                     | 768       | -         | -               | -             |                                                                             |
+| `m3e-large`                    | 1024      | -         | -               | -             |                                                                             |
+| `m3e-small`                    | 384       | -         | -               | -             |                                                                             |
 
 ### Indexing
 Indexing plays a pivotal role in RAG systems. It is the process of structuring and organizing the data in a corpus to enable efficient and rapid retrieval of relevant information.
