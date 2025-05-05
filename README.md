@@ -32,7 +32,7 @@ In this section, we will only discuss dense encoding models, and we will categor
 
 
 | Model Name                     | Dimension | Max Token | Parameter Scale | Model Size    | Introduction                                                                 |
-|----------------------------------------|---------------|----------------------|--------------------------|-----------------------|-----------------------------------------------------------------------------|
+|----------------------------------------|-------------------------|----------------------|--------------------------|-----------------------|----------------------------------------------------------------|
 | `bge-v1&v1.5`                  | Small: 384<br>Base: 768<br>Large: 1024     | 512       |  Small: 24M/33.4M (zh/en)<br>Base: 102M/109M (zh/en)<br>Large: 326M/335M (zh/en)<br> | Small: 95.8MB/133MB (zh/en)<br>Base: 409MB/438MB (zh/en)<br>Large: 1.3GB/1.34GB(zh/en)<br> |The v1 version introduced multilingual (Chinese/English) and multi-scale (large/medium/small) models. The v1.5 version optimized retrieval capabilities in instruction-free scenarios, addressing issues with vector similarity distribution while balancing embedding quality and model scale. This encoder also supports [Matryoshka truncation](https://arxiv.org/pdf/2205.13147). During fine-tuning, users can specify different truncation lengths . |
 | `bge-m3`                       | 1024      | 8192      | 596M            | 2.27 GB       |                                                                             |
 
