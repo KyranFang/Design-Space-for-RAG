@@ -26,24 +26,14 @@ In this section, we will only discuss dense encoding models, and we will categor
 
 #### Open-source Encoder:
 1. [BGE Series](https://bge-model.com/bge/index.html): BGE stands for **B**AAI **G**eneral **E**mbeddings, which is a series of BERT-based embedding models released by BAAI.
-	1. [BGE-v1&v1.5](https://bge-model.com/bge/bge_v1_v1.5.html):  The v1 version, released in August 2023, introduced multilingual (Chinese/English) and multi-scale (large/medium/small) models. The v1.5 version, released in September 2023, optimized retrieval capabilities in instruction-free scenarios, addressing issues with vector similarity distribution while balancing embedding quality and model scale. This encoder also supports [Matryoshka truncation](https://arxiv.org/pdf/2205.13147). During fine-tuning, users can specify different truncation lengths to adapt the model to various input scenarios.
+	1. [BGE-v1&v1.5](https://bge-model.com/bge/bge_v1_v1.5.html):  
 	2. [BGE-M3](https://bge-model.com/bge/bge_m3.html)
  	3. 
 
 
 | Model Name                     | Dimension | Max Token | Parameter Scale | Model Size    | Introduction                                                                 |
 |--------------------------------|-----------|-----------|-----------------|---------------|-----------------------------------------------------------------------------|
-| `bge-v1&v1.5`                  | 384<br>768  1024     | 512       | 109M            | 438 MB        |                                                                             |
-| `bge-base-en-v1.5`             | 768       | 512       | 109M            | 438 MB        |                                                                             |
-| `bge-base-zh`                  | 768       | 512       | 102M            | 409 MB        |                                                                             |
-| `bge-base-zh-v1.5`             | 768       | 512       | 102M            | 409 MB        |                                                                             |
-| `bge-large-en`                 | 1024      | 512       | 335M            | 1.34 GB       |                                                                             |
-| `bge-large-en-v1.5`            | 1024      | 512       | 335M            | 1.34 GB       |                                                                             |
-| `bge-large-zh`                 | 1024      | 512       | 326M            | 1.3 GB        |                                                                             |
-| `bge-large-zh-v1.5`            | 1024      | 512       | 326M            | 1.3 GB        |                                                                             |
-| `bge-small-en-v1.5`            | 384       | 512       | 33.4M           | 133 MB        |                                                                             |
-| `bge-small-zh`                 | 384       | 512       | 24M             | 95.8 MB       |                                                                             |
-| `bge-small-zh-v1.5`            | 384       | 512       | 24M             | 95.8 MB       |                                                                             |
+| `bge-v1&v1.5`                  | Small: 384<br>Base: 768<br>Large: 1024     | 512       |  Small: 24M/33.4M (zh/en)<br>Base: 102M/109M (zh/en)<br>Large: 326M/335M (zh/en)<br> | Small: 95.8MB/133MB (zh/en)<br>Base: 409MB/438MB (zh/en)<br>Large: 1.3GB/1.34GB(zh/en)<br> |The v1 version, released in August 2023, introduced multilingual (Chinese/English) and multi-scale (large/medium/small) models. The v1.5 version, released in September 2023, optimized retrieval capabilities in instruction-free scenarios, addressing issues with vector similarity distribution while balancing embedding quality and model scale. This encoder also supports [Matryoshka truncation](https://arxiv.org/pdf/2205.13147). During fine-tuning, users can specify different truncation lengths to adapt the model to various input scenarios. |
 | `bge-m3`                       | 1024      | 8192      | 596M            | 2.27 GB       |                                                                             |
 
 
