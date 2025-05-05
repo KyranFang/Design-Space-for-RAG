@@ -26,14 +26,9 @@ In this section, we will only discuss dense encoding models, and we will categor
 
 #### Open-source Encoder:
 1. [BGE Series](https://bge-model.com/bge/index.html): BGE stands for **B**AAI **G**eneral **E**mbeddings, which is a series of BERT-based embedding models released by BAAI.
-	1. [BGE-v1&v1.5](https://bge-model.com/bge/bge_v1_v1.5.html):  
-	2. [BGE-M3](https://bge-model.com/bge/bge_m3.html)
- 	3. 
-
-
-| Model Name                     | Dimension | Max Token | Parameter Scale | Model Size    | Introduction                                                                 |
+| Model Name                     | Dimension | Max Token | Parameter Scale | Model Size    | Comments                                                                 |
 |----------------------------------------|-------------------------|----------------------|--------------------------|-----------------------|----------------------------------------------------------------|
-| `bge-v1&v1.5`                  | Small:<br> 384<br><br>Base:<br> 768<br><br>Large:<br> 1024     | 512       |  Small:<br> 24M/33.4M (zh/en)<br><br>Base:<br> 102M/109M (zh/en)<br><br>Large:<br> 326M/335M (zh/en)<br> | Small:<br> 95.8MB/133MB (zh/en)<br><br>Base:<br> 409MB/438MB (zh/en)<br><br>Large:<br> 1.3GB/1.34GB(zh/en)<br> |The v1 version introduced multilingual (Chinese/English) and multi-scale (large/medium/small) models. The v1.5 version optimized retrieval capabilities in instruction-free scenarios, addressing issues with vector similarity distribution while balancing embedding quality and model scale. This encoder also supports [Matryoshka truncation](https://arxiv.org/pdf/2205.13147). During fine-tuning, users can specify different truncation lengths . |
+| `bge-v1&v1.5`                  | Small:<br> 384<br><br>Base:<br> 768<br><br>Large:<br> 1024     | 512       |  Small:<br> 24M/33.4M (zh/en)<br><br>Base:<br> 102M/109M (zh/en)<br><br>Large:<br> 326M/335M (zh/en)<br> | Small:<br> 95.8MB/133MB (zh/en)<br><br>Base:<br> 409MB/438MB (zh/en)<br><br>Large:<br> 1.3GB/1.34GB(zh/en)<br> |Supports [Matryoshka truncation](https://arxiv.org/pdf/2205.13147). Norm normalized to 1.|
 | `bge-m3`                       | 1024      | 8192      | 596M            | 2.27 GB       |                                                                             |
 
 
