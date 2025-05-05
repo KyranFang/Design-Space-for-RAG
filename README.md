@@ -22,8 +22,16 @@ However, why do we need to define the design space of RAG? Because the research 
 ### Encoder
 In a RAG system, the core role of the encoder is to encode the **queries** from the users and **documents** from the external database into **dense vectors** for **semantic similarity calculation**. Subsequently, by computing the distances between these vectors, the system rapidly retrieves the **most relevant documents** from the knowledge base that match the user's query.
 
+In this section, we will only discuss dense encoding models, and we will categorize common encoders into two categories: open-source and closed-source for discussion.
+
+#### Open-source Encoder:
+1. BGE Series:
+	1. [BGE-v1&v1.5](https://bge-model.com/bge/bge_v1_v1.5.html): BGE stands for BAAI General Embeddings, which is a series of BERT-based embedding models released by BAAI. The v1 version, released in August 2023, introduced multilingual (Chinese/English) and multi-scale (large/medium/small) models. The v1.5 version, released in September 2023, optimized retrieval capabilities in instruction-free scenarios, addressing issues with vector similarity distribution while balancing embedding quality and model scale. This encoder also supports [Matryoshka truncation](https://arxiv.org/pdf/2205.13147). During fine-tuning, users can specify different truncation lengths to adapt the model to various input scenarios.
+	2. [BGE-M3](https://bge-model.com/bge/bge_m3.html)
+ 	3. 
+
 ### Indexing
-Indexing plays a pivotal role in the realm of Retrieval Augmented Generation (RAG). It is the process of structuring and organizing the data in a corpus to enable efficient and rapid retrieval of relevant information.
+Indexing plays a pivotal role in RAG systems. It is the process of structuring and organizing the data in a corpus to enable efficient and rapid retrieval of relevant information.
 In the context of RAG, indexing is essential for the retriever module. A well - designed index allows the retriever to quickly sift through a large amount of data and identify documents that are most relevant to the input query. This is crucial as the speed and accuracy of retrieval directly impact the quality of the generated response by the generator.
 
 ### Retriever
