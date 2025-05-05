@@ -1,4 +1,4 @@
-# Design-Space-for-RAG
+# Design-Space-for-RAG (ongoing)
 
 ## Overview
 This repository serves as a comprehensive survey of the design space for Retrieval Augmented Generation (RAG). RAG is a powerful approach that combines retrieval mechanisms with generative models to enhance the quality and relevance of generated text. 
