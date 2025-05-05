@@ -33,7 +33,7 @@ In this section, we will only discuss dense encoding models, and we will categor
 
 | Model Name                     | Dimension | Max Token | Parameter Scale | Model Size    | Introduction                                                                 |
 |--------------------------------|-----------|-----------|-----------------|---------------|-----------------------------------------------------------------------------|
-| `bge-v1&v1.5`                  | 384  768  1024     | 512       | 109M            | 438 MB        |                                                                             |
+| `bge-v1&v1.5`                  | 384<br>768  1024     | 512       | 109M            | 438 MB        |                                                                             |
 | `bge-base-en-v1.5`             | 768       | 512       | 109M            | 438 MB        |                                                                             |
 | `bge-base-zh`                  | 768       | 512       | 102M            | 409 MB        |                                                                             |
 | `bge-base-zh-v1.5`             | 768       | 512       | 102M            | 409 MB        |                                                                             |
