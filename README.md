@@ -6,15 +6,16 @@ However, why do we need to define the design space of RAG? Because the research 
 
 ## Table of Contents
 1. [RAG Modules](#rag-modules)
-    - [Encoder](#encoder)
-    - [Indexing](#indexing)
-    - [Retriever](#retriever)
-    - [Refiner](#refiner)
+   - [Retriever](#retriever)
+        - [Encoding](#encoder)
+        - [Indexing](#indexing)
+        - [Retrieval](#retrieval)
     - [Reranker](#reranker)
+    - [Refiner](#refiner)
     - [Generator](#generator)
-2. [RAG Pipelines](#rag-pipelines)
-3. [Contributing](#contributing)
-4. [License](#license)
+3. [RAG Pipelines](#rag-pipelines)
+4. [Contributing](#contributing)
+5. [License](#license)
 
 ## RAG Modules
 
